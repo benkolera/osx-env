@@ -1,0 +1,12 @@
+(require 'scala-mode2)
+(require 'whitespace)
+
+(add-hook 'scala-mode-hook '(lambda ()
+  (make-local-variable 'before-save-hook)
+  (add-hook 'before-save-hook 'whitespace-cleanup)
+  (setq indent-tabs-mode nil)
+  (fci-mode)
+  (highlight-80+-mode)
+  (yas/minor-mode-on)
+  (subword-mode)
+))

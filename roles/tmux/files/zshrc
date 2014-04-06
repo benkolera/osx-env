@@ -1,0 +1,2 @@
+[[ $- != *i* ]] && return
+[[ -z "$TMUX" ]] && exec tmx && exit

@@ -1,0 +1,27 @@
+# -*- mode: snippet -*-
+# name: perl-script-csv
+# key: pscsv
+# expand-env: ((yas/indent-line 'fixed) (yas/wrap-around-region 'nil))
+# --
+use v5.16;
+use warnings;
+use Text::CSV;
+use DBI;
+use Data::Printer;
+
+my $dbh = DBI->connect( 'dbi:Pg:host=$1;dbname=$2' , 'bkolera' , '$3' );
+my $csv = Text::CSV->new( { binary => 1 , always_quote => 1 , eol => "${4:\r\n}" } ) 
+   || die "No CSV for you: " . Text::CSV->error_diag();
+
+my $columns = $csv->getline( *STDIN );
+$csv->column_names( $columns );
+
+my @out; 
+
+while ( my $line = $csv->getline( *STDIN ) ) {
+  $0      
+  push @out , $line;
+}
+
+$csv->print( *STDOUT , $columns );
+$csv->print( *STDOUT , $_ ) for @out;

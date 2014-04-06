@@ -1,0 +1,2 @@
+[hipster-macs]
+localhost       ansible_connection=local

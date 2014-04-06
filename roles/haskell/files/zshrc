@@ -1,0 +1,1 @@
+export PATH="{{ cabal_dir }}/bin":$PATH;

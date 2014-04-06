@@ -1,0 +1,1 @@
+source {{ rvm_dir }}/scripts/rvm

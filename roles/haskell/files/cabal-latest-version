@@ -1,0 +1,1 @@
+grep "pkg: $1 " {{ cabal_dir }}/packages/hackage.haskell.org/00-index.cache | tail -n 1 | awk '{ print $3 }'

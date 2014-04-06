@@ -1,0 +1,10 @@
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
+
+export PATH="$HOME/bin:$PATH"
+
+for i in $( find $HOME/.zsh.d/ -type f )
+do
+  source $i
+done

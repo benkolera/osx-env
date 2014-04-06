@@ -1,0 +1,24 @@
+- name: install zsh
+  homebrew: name=zsh state=present
+
+- name: copy zsh dotfiles
+  copy: src=dotfiles/ dest={{user_home}} owner={{user_name}} mode={{600}}
+
+- name: checkout prezto
+  git: repo=https://github.com/sorin-ionescu/prezto.git
+       dest={{preztod}}
+
+- name: link prezto configs
+  file: state=link 
+        src="{{preztod}}/runcoms/{{item}}" 
+        dest="{{user_home}}/{{item}}"
+  with_items:
+    - zlogin
+    - zlogout
+    - zprofile
+
+- name: create zsh.d
+  file: state=directory path={{user_home}}.zsh.d
+
+# At this point you'll have to manually configure your iterm profile to use zsh.
+# As I don't think chsh will work with remote logins (but will experiment later).
