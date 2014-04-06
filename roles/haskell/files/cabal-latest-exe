@@ -1,7 +1,5 @@
-if ! test "`find ~/.cabal/packages/hackage.haskell.org/00-index.cache -mtime 1 2> /dev/null`" ; then
+if ! test "find ~/.cabal/packages/hackage.haskell.org/00-index.cache -mtime 1 2> /dev/null" ; then
   cabal update ;
-else 
-  echo "Package list up to date";
 fi;
 
 latest=$(cabal-latest-version $1)
@@ -12,8 +10,8 @@ if [ "$exes" != "" ] ; then
   matched=0;
   for i in $(echo $exes) ; do
     version=$($i --version);
-    if test $(echo $version | grep -q $latest) ; then
-      echo "Already up to date!"
+    if test "echo $version | grep -q $latest" ; then
+      echo "Already up to date"
     else 
       echo "Updating $1"
       cabal install $1

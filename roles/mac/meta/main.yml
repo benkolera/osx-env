@@ -1,0 +1,7 @@
+dependencies:
+  - { role: apps }
+  - { role: zsh }
+  - { role: haskell }
+  - { role: emacs }
+  - { role: scala }
+  - { role: tmux }

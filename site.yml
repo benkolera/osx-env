@@ -1,7 +1,3 @@
 - hosts: home-mac
   roles:
-    - apps
-    - zsh
-    - haskell
-    - emacs
-    - scala
+    - mac

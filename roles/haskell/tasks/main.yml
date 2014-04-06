@@ -25,5 +25,7 @@
 
 - name: "install hoogle"
   shell: "{{cabal_latest_exe}} hoogle"
+  register: hoogleInstallResult
+  changed_when: hoogleInstallResult.stdout != "Already up to date"
   notify: 
     - "hoogle-generate"

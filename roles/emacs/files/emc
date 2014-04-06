@@ -1,1 +1,1 @@
-( emacsclient -e "(emacs-uptime)" 2>&1 > /dev/null || emacs --daemon ) && emacsclient -c $@
+( emacsclient -e "(emacs-uptime)" 2>&1 > /dev/null || emacs --daemon ) && emacsclient -c -t $@

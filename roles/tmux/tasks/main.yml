@@ -1,0 +1,5 @@
+- name: "install tmux"
+  homebrew: name=tmux
+
+- name: "install tmux.conf"
+  copy: src=tmux.conf dest="{{user_home}}.tmux.conf" owner="{{user_name}}" mode="600"
