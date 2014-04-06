@@ -1,0 +1,22 @@
+export EDITOR='emc'
+export VISUAL='emc'
+export PAGER='less'
+
+if [[ -z "$LANG" ]]; then
+  export LANG='en_US.UTF-8'
+fi
+
+typeset -gU cdpath fpath mailpath path
+
+export PATH="$HOME/bin:$PATH"
+
+if [[ ! -d "$TMPDIR" ]]; then
+  export TMPDIR="{{ user_tmp
+ }}"
+  mkdir -p -m 700 "$TMPDIR"
+fi
+
+TMPPREFIX="${TMPDIR%/}/zsh"
+if [[ ! -d "$TMPPREFIX" ]]; then
+  mkdir -p "$TMPPREFIX"
+fi
