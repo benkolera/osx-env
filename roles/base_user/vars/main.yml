@@ -1,4 +1,4 @@
-user_name: ben
+vcs_user_name: bkolera
 user_home: "/Users/{{user_name}}/"
 user_tmp: "{{user_home}}tmp/"
 user_var: "{{user_home}}var/"
@@ -6,3 +6,7 @@ user_lib: "{{user_home}}lib/"
 user_etc: "{{user_home}}etc/"
 user_opt: "{{user_home}}opt/"
 user_bin: "{{user_home}}bin/"
+user_src: "{{user_home}}src/"
+user_src_personal: "{{user_src}}personal/"
+user_src_3rdparty: "{{user_src}}3rdparty/"
+user_src_work: "{{user_src}}work/"

@@ -1,0 +1,2 @@
+[hipster-mac]
+localhost ansible_connection=local user_email=bkolera@iseek.com.au is_iseek=true user_name=ben

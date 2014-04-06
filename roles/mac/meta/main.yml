@@ -6,3 +6,4 @@ dependencies:
   - { role: scala }
   - { role: tmux }
   - { role: ssh }
+  - { role: iseek , when: is_iseek }

@@ -1,0 +1,4 @@
+src_wg: "{{user_src_work}}wg/"
+src_corp: "{{user_src_work}}corp/"
+src_icare: "{{src_corp}}icare/"
+src_visp: "{{user_src_work}}visp/"

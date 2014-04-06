@@ -1,5 +1,0 @@
-[home-mac]
-localhost       ansible_connection=local user_email=ben.kolera@gmail.com is_iseek=false
-
-[work-mac]
-127.0.0.1       ansible_connection=local user_email=bkolera@iseek.com.au is_iseek=true

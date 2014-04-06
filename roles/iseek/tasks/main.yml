@@ -1,0 +1,48 @@
+- name: create base directories
+  file: state=directory path={{item}}
+  with_items:
+    - "{{src_wg}}"
+    - "{{src_corp}}"
+    - "{{src_icare}}"
+    - "{{src_visp}}"
+
+- name: "check for dev svn credentials"
+  command: "grep -qR 'Development Login' {{user_home}}.subversion/auth/svn.simple/"
+  ignore_errors: yes
+  register: dev_svn_credentials
+  changed_when: "false"
+
+
+- name: "check for visp svn credentials"
+  command: "grep -qR 'VISP Login' {{user_home}}.subversion/auth/svn.simple/"
+  ignore_errors: yes
+  register: visp_svn_credentials
+  changed_when: "false"
+
+- name: "message about missing visp svn credentials"
+  debug: msg="Missing visp svn credentials. Please do a svn export http://dev.iseek.com.au/development/visp/sql /tmp/vispsql to save deets and rerun this playbook."
+  when: "visp_svn_credentials.rc != 0"
+
+- name: "message about missing dev svn credentials"
+  debug: msg="Missing dev svn credentials. Please do a svn export http://dev.iseek.com.au/development/icare/sql /tmp/icaresql to save deets and rerun this playbook."
+  when: "dev_svn_credentials.rc != 0"
+
+- name: "check out dev sql dirs"
+  command: "git svn clone http://dev.iseek.com.au/development/{{item.path}} sql chdir={{item.dir}} creates={{item.dir}}/sql"
+  when: "dev_svn_credentials.rc == 0"
+  with_items: 
+# WG is way too slow over proxifier + vpn
+#    - { path: "wigi/sql" , dir: "{{src_wg}}" } 
+    - { path: "icare/sql" , dir: "{{src_icare}}" } 
+
+- name: "check out visp sql dir"
+  command: "git svn clone http://dev.iseek.com.au/development/visp/sql chdir={{src_visp}} creates={{src_visp}}/sql"
+  when: "visp_svn_credentials.rc == 0"
+
+- name: "checkout git repos"
+  git: "repo=ssh://gitmo.build.iseek.com.au/{{item.name}} dest={{item.dir}}{{item.name}}"
+  with_items:
+    - { name: "iseek-DC-API" , dir: "{{src_corp}}" } 
+    - { name: "iseek-Salesfarce" , dir: "{{src_corp}}" } 
+    - { name: "iseek-Salesfarce-Static" , dir: "{{src_corp}}" } 
+    - { name: "iseek-NutSweat-Importer" , dir: "{{src_corp}}" } 

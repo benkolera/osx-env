@@ -7,3 +7,7 @@
     - "{{user_opt}}"
     - "{{user_tmp}}"
     - "{{user_bin}}"
+    - "{{user_src}}"
+    - "{{user_src_personal}}"
+    - "{{user_src_3rdparty}}"
+    - "{{user_src_work}}"
