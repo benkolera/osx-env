@@ -3,3 +3,6 @@
 
 - name: "install g8"
   homebrew: name="giter8"
+
+- name: "install java"
+  homebrew_cask: name=java

@@ -16,7 +16,6 @@
 - name: "install tree"
   homebrew: name=tree
 
-
 - name: install chrome
   homebrew_cask: name=google-chrome
 
@@ -25,9 +24,11 @@
 
 - name: install alfred
   homebrew_cask: name=alfred
+  notify: "cask alfred"
 
 - name: install hyperdock
   homebrew_cask: name=hyperdock
 
 - name: install contexts
   homebrew_cask: name=contexts
+
