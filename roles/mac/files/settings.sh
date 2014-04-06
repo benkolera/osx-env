@@ -76,6 +76,11 @@ defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 defaults write com.apple.screensaver askForPassword -int 1
 defaults write com.apple.screensaver askForPasswordDelay -int 0
 
+# Set display sleep timeout of 5 minutes & sleep of 30/10 minutes.
+sudo pmset -a displaysleep 5
+sudo pmset -c sleep 30
+sudo pmset -b sleep 10
+
 ###############################################################################
 # Finder                                                                      #
 ###############################################################################
