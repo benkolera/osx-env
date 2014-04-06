@@ -1,0 +1,5 @@
+[user]
+	name = Ben Kolera
+	email = {{user_email}}
+[push]
+	default = simple

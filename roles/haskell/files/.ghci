@@ -1,0 +1,13 @@
+:set prompt "λ> "
+
+:def hoogle \str -> return $ ":! hoogle --count=15 \"" ++ str ++ "\""
+
+:def ghc_pkg (\l->return $ ":!"++GHC.Paths.ghc_pkg++" "++l)
+ 
+:def browser (\l->return $ ":!open -a /opt/homebrew-cask/Caskroom/google-chrome/latest/Google\ Chrome.app"++l)
+ 
+let doc p = return $ ":browser "++GHC.Paths.libdir++dropWhile (/='/')GHC.Paths.docdir++relative where { relative | p=="" = "/index.html" | otherwise = p }
+:def doc doc
+ 
+let users_guide p = doc ("/users_guide"++if null p then "/index.html" else p)
+:def users_guide users_guide

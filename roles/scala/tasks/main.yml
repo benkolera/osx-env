@@ -1,0 +1,5 @@
+- name: "install sbt"
+  homebrew: name="sbt"
+
+- name: "install g8"
+  homebrew: name="giter8"

@@ -5,8 +5,25 @@
 - name: "install cabal-latest-exe"
   copy: src="cabal-latest-exe" dest="{{user_bin}}" owner="{{user_name}}" mode="700"
 
+- name: "install .ghci"
+  copy: src=".ghci" dest="{{user_home}}" owner="{{user_name}}" mode="600"
+
+- name: "install .zshrc"
+  template: src="haskell.zshrc" dest="{{zshd}}" owner="{{user_name}}" mode="600"
+
 # You could install the haskell platform instead if you want, but you should probably be 
 # sandboxing and installing deps into your userspace instead anyhow.
 - name: "install cabal-install"
   homebrew: name="cabal-install"
-  notify: "cabal update"
+  register: cabalInstallResult
+
+- name: "cabal-update"
+  shell: "{{cabal_latest_exe}} cabal-install"
+  when: cabalInstallResult.changed
+  register: cabalUpdateResult"
+  changed_when: cabalUpdateResult.stdout != "Already up to date"
+
+- name: "install hoogle"
+  shell: "{{cabal_latest_exe}} hoogle"
+  notify: 
+    - "hoogle-generate"

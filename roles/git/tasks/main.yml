@@ -1,0 +1,5 @@
+- name: "install git"
+  homebrew: name="git"
+
+- name: "install git config"
+  template: src=".gitconfig" dest="{{user_home}}" owner="{{user_name}}" mode="600"

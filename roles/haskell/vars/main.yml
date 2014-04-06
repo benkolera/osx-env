@@ -1,1 +1,4 @@
-cabal_dir: "{{user_home}}.cabal"
+cabal_dir: "{{user_home}}.cabal/"
+cabal_bin: "{{cabal_dir}}bin/"
+cabal_install: /usr/local/bin/cabal
+cabal_latest_exe: "{{user_bin}}cabal-latest-exe"

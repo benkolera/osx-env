@@ -1,5 +1,5 @@
 - name: install cask
-  homebrew: name="homebrew-cask" 
+  homebrew: name="brew-cask" 
 
 - name: "install watch"
   homebrew: name=watch

@@ -1,6 +1,7 @@
-- hosts: localhost
+- hosts: home-mac
   roles:
-#    - apps
-#    - zsh
+    - apps
+    - zsh
     - haskell
-#    - emacs
+    - emacs
+    - scala
