@@ -1,0 +1,8 @@
+- name: install chrome
+  homebrew-cask: google-chrome
+- name: install alfred
+  homebrew-cask: alfred
+- name: install hyperdock
+  homebrew-cask: hyperdock
+- name: install contexts
+  homebrew-cask: contexts
