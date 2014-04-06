@@ -5,3 +5,4 @@ dependencies:
   - { role: emacs }
   - { role: scala }
   - { role: tmux }
+  - { role: ssh }
