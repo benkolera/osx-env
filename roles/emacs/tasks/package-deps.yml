@@ -1,0 +1,9 @@
+- name: install emacs cocoa
+  homebrew: name=emacs install_options=cocoa
+
+- name: install ispell
+  homebrew: name=ispell
+
+- name: install w3m
+  homebrew: name=w3m
+

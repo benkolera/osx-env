@@ -1,7 +1,7 @@
-(setq lib-dir "{{ dirs['lib'] }}/")
-(setq etc-dir "{{ dirs['etc'] }}/")
-(setq var-dir "{{ dirs['var'] }}/")
-(setq tmp-dir "{{ dirs['tmp'] }}/")
+(setq lib-dir "{{ emacs_lib }}/")
+(setq etc-dir "{{ emacs_etc }}/")
+(setq var-dir "{{ emacs_var }}/")
+(setq tmp-dir "{{ emacs_tmp }}/")
     
 (let ((default-directory lib-dir))
       (normal-top-level-add-to-load-path '("."))

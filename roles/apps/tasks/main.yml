@@ -1,0 +1,33 @@
+- name: install cask
+  homebrew: name="homebrew-cask" 
+
+- name: "install watch"
+  homebrew: name=watch
+
+- name: "install wget"
+  homebrew: name=wget
+
+- name: "install curl"
+  homebrew: name=curl
+
+- name: "install htop"
+  homebrew: name=htop
+
+- name: "install tree"
+  homebrew: name=tree
+
+
+- name: install chrome
+  homebrew_cask: name=google-chrome
+
+- name: install iterm2
+  homebrew_cask: name=iterm2
+
+- name: install alfred
+  homebrew_cask: name=alfred
+
+- name: install hyperdock
+  homebrew_cask: name=hyperdock
+
+- name: install contexts
+  homebrew_cask: name=contexts

@@ -1,0 +1,9 @@
+- name: create base user directories
+  file: state=directory path={{item}} owner={{user_name}} mode=700
+  with_items:
+    - "{{user_etc}}"
+    - "{{user_var}}"
+    - "{{user_lib}}"
+    - "{{user_opt}}"
+    - "{{user_tmp}}"
+    - "{{user_bin}}"

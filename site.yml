@@ -1,5 +1,6 @@
 - hosts: localhost
   roles:
-    - base_user
-    - casks
-    - zsh
+#    - apps
+#    - zsh
+    - haskell
+#    - emacs

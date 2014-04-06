@@ -1,21 +1,24 @@
-latest=$(cabal-latest-version $1)
-
-if test "`find ~/.cabal/packages/hackage.haskell.org/00-index.cache -mtime 1`" ; then
-  cabal update 
+if ! test "`find ~/.cabal/packages/hackage.haskell.org/00-index.cache -mtime 1 2> /dev/null`" ; then
+  cabal update ;
+else 
+  echo "Package list up to date";
 fi;
 
+latest=$(cabal-latest-version $1)
+
 exes=$(cabal info $1 | grep Executables | awk '{print $2}' | tr ',' "\n" | egrep -v '^[[:space:]]*$' )
+
 if [ "$exes" != "" ] ; then
   matched=0;
   for i in $(echo $exes) ; do
     version=$($i --version);
     if test $(echo $version | grep -q $latest) ; then
-      echo "Not latest! Expected $latest but output of '$i --version' was:" >&2 ;
-      echo $version;
-      matched=1;
+      echo "Already up to date!"
+    else 
+      echo "Updating $1"
+      cabal install $1
     fi; 
   done;
-  exit $matched;
 else
   echo "No executables found for package: $1" >&2;
   exit 2;

@@ -4,7 +4,7 @@ fi
 
 export PATH="$HOME/bin:$PATH"
 
-for i in $( find {{zshd}} -type f )
+for i in $( find $HOME/.zsh.d/ -type f )
 do
   source $i
 done

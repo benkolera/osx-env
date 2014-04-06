@@ -1,0 +1,4 @@
+- name: "cabal update"
+  shell: "{{user_bin}}cabal-latest-exe cabal-install"
+  register: "cabal_update_result"
+  changed_when: 'cabal_update_result.stdout != "Already up to date"'

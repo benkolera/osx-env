@@ -1,6 +1,6 @@
 (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
-(setq org-directory (expand-file-name "{{ dirs['org'] }}"))
-(setq org-default-notes-file "{{ dirs['org'] }}/notes")
+(setq org-directory (expand-file-name "{{ emacs_org }}"))
+(setq org-default-notes-file "{{ emacs_org }}notes")
 (setq remember-annotation-functions '(org-remember-annotation))
 (setq remember-handler-functions '(org-remember-handler))
 (add-hook 'remember-mode-hook 'org-remember-apply-template)
@@ -28,15 +28,15 @@
 
 (defun org-iseek ()
   (interactive)
-  (find-file "{{ dirs['org'] }}/iseek.org"))
+  (find-file "{{ emacs_org }}iseek.org"))
 
 (defun org-personal ()
   (interactive)
-  (find-file "{{ dirs['org'] }}/personal.org"))
+  (find-file "{{ emacs_org }}personal.org"))
 
 (defun org-journal ()
   (interactive)
-  (find-file "{{ dirs['org'] }}/journal.org"))
+  (find-file "{{ emacs_org }}/journal.org"))
 
 (global-set-key "\C-coc" 'org-pomodoro)
 (global-set-key "\C-coi" 'org-iseek)

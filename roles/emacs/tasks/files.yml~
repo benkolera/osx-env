@@ -1,0 +1,4 @@
+- name: install static emacs etc files
+  template: src="{{item}}" dest="{{emacs_etc}}{{item}}"
+  with_fileglob:
+    - etc/*

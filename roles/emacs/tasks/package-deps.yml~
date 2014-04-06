@@ -1,0 +1,6 @@
+- name: install emacs cocoa
+  homebrew: name=emacs install_options=cocoa
+
+- name: install ispell
+  homebrew: name=ispell
+

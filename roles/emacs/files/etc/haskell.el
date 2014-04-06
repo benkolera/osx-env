@@ -1,4 +1,4 @@
-(add-to-list 'load-path (concat lib-dir "structured-haskell-mode/elisp"))
+(add-to-list 'load-path (concat "{{emacs_lib_shm}}" "elisp"))
 
 (require 'haskell-mode)
 (require 'shm)

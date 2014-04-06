@@ -2,4 +2,4 @@
 
 
 (setq ac-auto-start 4)
-(setq ac-comphist-file "{{ dirs['var'] }}/emacs/ac-comphist.dat")
+(setq ac-comphist-file "{{ emacs_var }}ac-comphist.dat")

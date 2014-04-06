@@ -1,1 +1,2 @@
-preztod: "{{user_home}}.zprezto"
+preztod: "{{user_home}}.zprezto/"
+zshd: "{{user_home}}.zsh.d/"

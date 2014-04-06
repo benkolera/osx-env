@@ -1,3 +1,8 @@
 user_name: ben
 user_home: "/Users/{{user_name}}/"
-user_tmp: "{{user_home}}tmp"
+user_tmp: "{{user_home}}tmp/"
+user_var: "{{user_home}}var/"
+user_lib: "{{user_home}}lib/"
+user_etc: "{{user_home}}etc/"
+user_opt: "{{user_home}}opt/"
+user_bin: "{{user_home}}bin/"
