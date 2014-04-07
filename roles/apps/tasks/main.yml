@@ -39,3 +39,6 @@
 - name: install contexts
   homebrew_cask: name=contexts
 
+- name: install vmware fusion
+  homebrew_cask: "name=vmware-fusion"
+
