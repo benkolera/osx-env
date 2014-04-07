@@ -1,2 +1,2 @@
-- name: "install ssh.zshrc"
-  copy: src=ssh.zshrc dest={{zshd}} owner={{user_name}} mode=600
+- name: "install config"
+  copy: src=config dest={{user_home}}.ssh/ owner={{user_name}} mode=600
