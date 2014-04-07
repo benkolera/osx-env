@@ -31,8 +31,7 @@
   command: "git svn clone http://dev.iseek.com.au/development/{{item.path}} sql chdir={{item.dir}} creates={{item.dir}}/sql"
   when: "dev_svn_credentials.rc == 0"
   with_items: 
-# WG is way too slow over proxifier + vpn
-#    - { path: "wigi/sql" , dir: "{{src_wg}}" } 
+    - { path: "wigi/sql" , dir: "{{src_wg}}" } 
     - { path: "icare/sql" , dir: "{{src_icare}}" } 
 
 - name: "check out visp sql dir"

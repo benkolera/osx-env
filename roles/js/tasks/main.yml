@@ -1,0 +1,5 @@
+- name: "install npm"
+  homebrew: name=npm
+
+- name: "install grunt and bower"
+  shell: "npm install -g grunt bower"

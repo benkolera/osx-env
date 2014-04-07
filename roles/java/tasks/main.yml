@@ -1,0 +1,6 @@
+- name: "install java"
+  homebrew_cask: cask="java"
+
+- name: "install maven"
+  homebrew: name="maven"
+  
