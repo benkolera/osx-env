@@ -1,4 +1,3 @@
-vcs_user_name: bkolera
 user_home: "/Users/{{user_name}}/"
 user_tmp: "{{user_home}}tmp/"
 user_var: "{{user_home}}var/"

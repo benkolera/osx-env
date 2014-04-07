@@ -1,6 +1,4 @@
-if ! test "find ~/.cabal/packages/hackage.haskell.org/00-index.cache -mtime 1 2> /dev/null" ; then
-  cabal update ;
-fi;
+cabal update ;
 
 latest=$(cabal-latest-version $1)
 
@@ -9,8 +7,9 @@ exes=$(cabal info $1 | grep Executables | awk '{print $2}' | tr ',' "\n" | egrep
 if [ "$exes" != "" ] ; then
   matched=0;
   for i in $(echo $exes) ; do
-    version=$($i --version);
-    if test "echo $version | grep -q $latest" ; then
+    version=$($i --version 2> /dev/null );
+    echo $version | grep -q '$latest'
+    if ["$?" -eq 0] ; then
       echo "Already up to date"
     else 
       echo "Updating $1"

@@ -1,3 +1,6 @@
+- name: tap homebrew cask
+  homebrew_tap: tap=phinze/cask
+
 - name: install cask
   homebrew: name="brew-cask" 
 
@@ -15,6 +18,9 @@
 
 - name: "install tree"
   homebrew: name=tree
+
+- name: "install postgres"
+  homebrew: name=postgres
 
 - name: install chrome
   homebrew_cask: name=google-chrome

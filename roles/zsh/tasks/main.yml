@@ -27,6 +27,7 @@
 - name: "make zsh {{user_name}}'s default shell"
 #   user: name={{user_name}} shell="/usr/local/bin/zsh" <== Doesn't work on OSX. Needs usermod
   sudo: yes
+  when: "not is_iseek"
   shell: "/usr/bin/chsh -s /usr/local/bin/zsh {{user_name}} 2>&1 | grep '^chsh:'"
   register: chsh_result
   changed_when: 'chsh_result.stdout != "chsh: no changes made"'
