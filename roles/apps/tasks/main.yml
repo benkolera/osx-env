@@ -23,6 +23,7 @@
   homebrew: name=postgres
 
 - name: install chrome
+  sudo: yes
   homebrew_cask: name=google-chrome
 
 - name: install iterm2

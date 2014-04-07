@@ -24,7 +24,7 @@
   changed_when: cabalUpdateResult.stdout != "Already up to date"
 
 - name: "install hoogle"
-  shell: "{{cabal_latest_exe}} hoogle"
+  shell: "{{cabal_latest_exe}} happy && {{cabal_latest_exe}} hoogle"
   register: hoogleInstallResult
   changed_when: hoogleInstallResult.stdout != "Already up to date"
   notify: 

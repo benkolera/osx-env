@@ -5,4 +5,5 @@
   homebrew: name="giter8"
 
 - name: "install java"
+  sudo: yes
   homebrew_cask: name=java
