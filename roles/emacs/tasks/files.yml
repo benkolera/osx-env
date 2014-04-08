@@ -12,6 +12,9 @@
   with_fileglob:
     - etc/*
 
+- name: "files | install zshrc"
+  copy: src="emacs.zshrc" dest="{{zshd}}" owner="{{user_name}}" mode="600"
+
 - name: "files | install libs"
   copy: src="lib/" dest="{{emacs_lib}}" owner="{{user_name}}" mode="700"
 
