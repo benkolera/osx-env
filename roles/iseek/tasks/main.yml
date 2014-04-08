@@ -38,8 +38,14 @@
   command: "git svn clone http://dev.iseek.com.au/development/visp/sql chdir={{src_visp}} creates={{src_visp}}/sql"
   when: "visp_svn_credentials.rc == 0"
 
+- name: "check for gitmo key"
+  command: "find {{user_home}}.ssh/gitmo_rsa"
+  ignore_errors: yes
+  register: gitmo_key
+
 - name: "checkout git repos"
-  git: "repo=ssh://gitmo.build.iseek.com.au/{{item.name}} dest={{item.dir}}{{item.name}}"
+  git: "repo=ssh://gitmo.build.iseek.com.au/{{item.name}} dest={{item.dir}}{{item.name}} key_file={{gitmo_key.stdout}}"
+  when: "gitmo_key.rc == 0"
   with_items:
     - { name: "iseek-DC-API" , dir: "{{src_corp}}" } 
     - { name: "iseek-Salesfarce" , dir: "{{src_corp}}" } 

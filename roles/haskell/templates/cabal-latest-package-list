@@ -1,0 +1,5 @@
+find "{{cabal_dir}}packages/hackage.haskell.org/00-index.cache" -mtime 1 2>&1 > /dev/null
+
+if [[ $? != 0 ]] ; then
+  cabal update ;
+fi;

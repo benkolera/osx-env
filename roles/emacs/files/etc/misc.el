@@ -31,9 +31,6 @@
 (put 'capitalize-region 'disabled nil)
 
 ;Don't need these keys for text navigation! 
-(global-set-key [right] 'windmove-right)
-(global-set-key [left] 'windmove-left)
-(global-set-key [up] 'windmove-up)
-(global-set-key [down] 'windmove-down)
+(windmove-default-keybindings 'meta)
 
-
+(global-set-key (kbd "C-c /") 'comment-or-uncomment-region) 

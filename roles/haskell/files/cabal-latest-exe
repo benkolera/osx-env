@@ -1,4 +1,4 @@
-cabal update ;
+cabal-latest-package-list
 
 latest=$(cabal-latest-version $1)
 

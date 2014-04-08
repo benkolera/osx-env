@@ -2,6 +2,8 @@
 (setq etc-dir "{{ emacs_etc }}/")
 (setq var-dir "{{ emacs_var }}/")
 (setq tmp-dir "{{ emacs_tmp }}/")
+
+(setq exec-path (append exec-path '("{{user_bin}}" "/usr/local/bin/")))
     
 (let ((default-directory lib-dir))
       (normal-top-level-add-to-load-path '("."))
@@ -13,11 +15,11 @@
 (defun configure (path) (load-file (concat etc-dir path ".el")))
 
 (configure "nogui")
+(configure "theme")
 (configure "backups")
 (configure "package")
 (configure "salesforce")
 (configure "linum")
-(configure "theme")
 (configure "fci-mode")
 (configure "search")
 (configure "nav")
@@ -37,6 +39,9 @@
 (configure "modeline")
 (configure "web")
 (configure "unicode")
+(configure "shell")
 
 (put 'dired-find-alternate-file 'disabled nil)
 (put 'narrow-to-region 'disabled nil)
+
+(server-start)

@@ -20,3 +20,6 @@
     (directory-files-and-attributes themes-dir))))
 
 (load-theme 'wombat t)
+
+(set-frame-parameter (selected-frame) 'alpha '(85 50))
+(add-to-list 'default-frame-alist '(alpha 85 50))

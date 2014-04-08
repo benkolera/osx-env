@@ -1,9 +1,9 @@
-Host *.iseek.com.au
-User bkolera
-
 Host gitmo.build.iseek.com.au
 User gitolite3
 IdentityFile ~/.ssh/gitmo_rsa
+
+Host *.iseek.com.au
+User bkolera
 
 Host *
 ServerAliveInterval 300

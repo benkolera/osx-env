@@ -7,3 +7,8 @@
 - name: "package-deps | install w3m"
   homebrew: name=w3m
 
+- name: "package-deps | install coreutils"
+  homebrew: name=coreutils
+
+- name: "package-deps | symlink ls" 
+  file: state=link src=/usr/local/opt/coreutils/libexec/gnubin/ls dest=/usr/local/bin/ls 

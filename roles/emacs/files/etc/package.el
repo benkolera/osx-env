@@ -42,6 +42,7 @@
     magit
     markdown-mode
     markdown-mode+
+    multi-eshell
     org-pomodoro
     projectile
     puppet-mode
