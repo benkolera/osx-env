@@ -17,6 +17,7 @@
 (configure "nogui")
 (configure "theme")
 (configure "backups")
+(configure "windows")
 (configure "package")
 (configure "salesforce")
 (configure "linum")

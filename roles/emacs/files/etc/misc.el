@@ -30,7 +30,4 @@
 (put 'downcase-region 'disabled nil)
 (put 'capitalize-region 'disabled nil)
 
-;Don't need these keys for text navigation! 
-(windmove-default-keybindings 'meta)
-
 (global-set-key (kbd "C-c /") 'comment-or-uncomment-region) 
