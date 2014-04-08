@@ -23,10 +23,12 @@
     css-mode
     csv-mode
     diminish
+    escreen
     fastnav
     find-file-in-project
     fill-column-indicator
     flymake-hlint
+    fullscreen-mode
     furl
     haskell-mode
     helm
