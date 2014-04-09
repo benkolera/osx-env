@@ -1,0 +1,8 @@
+- name: install rvm
+  shell: \curl -L https://get.rvm.io | bash -s stable creates=~/.rvm
+
+- name: install ruby
+  shell: ~/.rvm/bin/rvm install --default {{ ruby }} creates=~/.rvm/rubies/{{ ruby }}
+
+- name: install zshrc
+  copy: src=ruby.zshrc dest={{ zshd }} owner={{ user_name }} 

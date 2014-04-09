@@ -9,3 +9,4 @@ dependencies:
   - { role: iseek , when: is_iseek }
   - { role: js }
   - { role: java }
+  - { role: ruby }
