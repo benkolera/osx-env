@@ -5,7 +5,6 @@
 
 (autoload 'ghc-init "ghc" nil t)
 (add-hook 'haskell-mode-hook 'ghc-init)
-(add-hook 'haskell-mode-hook 'flymake-hlint-load)
 (add-hook 'haskell-mode-hook 'structured-haskell-mode)
 
 (setq auto-mode-alist (cons '("\\.hs$" . haskell-mode) auto-mode-alist))
