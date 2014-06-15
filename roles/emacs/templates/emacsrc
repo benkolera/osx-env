@@ -23,6 +23,7 @@
 (configure "theme")
 (configure "backups")
 (configure "windows")
+(configure "evil")  
 (configure "salesforce")
 (configure "linum")
 (configure "fci-mode")

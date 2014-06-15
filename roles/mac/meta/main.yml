@@ -1,5 +1,6 @@
 dependencies:
   - { role: apps }
+  - { role: tmpwatch }
   - { role: zsh }
   - { role: haskell }
   - { role: emacs }
