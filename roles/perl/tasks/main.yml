@@ -1,0 +1,6 @@
+- name: install perlbrew
+  shell: "curl -L http://install.perlbrew.pl | bash creates={{user_home}}perl5/perlbrew"
+
+- name: install zshrc
+  copy: "src=perl.zshrc dest={{zshd}}perl.zshrc"
+  
