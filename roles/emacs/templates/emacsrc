@@ -3,8 +3,12 @@
 (setq var-dir "{{ emacs_var }}/")
 (setq tmp-dir "{{ emacs_tmp }}/")
 
-(setq exec-path (append exec-path '("{{user_bin}}" "/usr/local/bin/")))
-    
+(setq my-path '("{{user_bin}}/bin" "{{cabal_dir}}/bin" "/usr/local/bin"))
+
+(setenv "PATH" (mapconcat 'identity (append my-path (list (getenv "PATH"))) ":"))
+
+(setq exec-path (append my-path exec-path))
+
 (let ((default-directory lib-dir))
       (normal-top-level-add-to-load-path '("."))
       (normal-top-level-add-subdirs-to-load-path))
@@ -15,10 +19,11 @@
 (defun configure (path) (load-file (concat etc-dir path ".el")))
 
 (configure "nogui")
+(configure "package")
 (configure "theme")
 (configure "backups")
 (configure "windows")
-(configure "package")
+(configure "evil")  
 (configure "salesforce")
 (configure "linum")
 (configure "fci-mode")

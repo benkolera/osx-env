@@ -45,3 +45,5 @@
 - name: install rescuetime
   homebrew_cask: "name=rescuetime"
 
+- name: install toggledesktop
+  homebrew_cask: "name=toggldesktop"

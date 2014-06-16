@@ -11,6 +11,7 @@ if [ "$exes" != "" ] ; then
     echo $version | grep -q '$latest'
     if ["$?" -eq 0] ; then
       echo "Already up to date"
+      exit 0;
     else 
       echo "Updating $1"
       cabal install $1
