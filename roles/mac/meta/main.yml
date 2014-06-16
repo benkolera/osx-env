@@ -10,3 +10,4 @@ dependencies:
   - { role: js }
   - { role: java }
   - { role: ruby }
+  - { role: perl }
