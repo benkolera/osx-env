@@ -1,0 +1,6 @@
+- name: install tmpwatch
+  homebrew: name=tmpwatch
+
+- name: install crontab
+  sudo: yes
+  cron: name="user home tmpwatch"  user={{user_name}} special_time=hourly job="tmpwatch -am 30d {{user_tmp}} {{user_home}}Downloads"

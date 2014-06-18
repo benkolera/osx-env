@@ -1,0 +1,17 @@
+opt={{user_opt}}haskell
+dir="$opt/$1"
+conf="$dir.sandbox.config
+
+function cabal_opt() {
+  echo cabal --sandbox-config-file $conf $@
+}
+
+if [[ -d "$dir" ]]; then 
+  echo "Sandbox already exists. Delete it to reinstall"
+else
+  cabal_opt sandbox init --sandbox $dir && cabal_opt install $1
+  cd {{user_bin}};
+  for i in $(ls $dir/bin/*); do
+    ln -s $i;
+  done;
+fi;
