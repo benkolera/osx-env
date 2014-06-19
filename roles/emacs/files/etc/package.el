@@ -8,8 +8,7 @@
 (mapc 
  (lambda (x) (add-to-list 'package-archives x)) 
  '(("marmalade" . "http://marmalade-repo.org/packages/")
-   ("melpa" . "http://melpa.milkbox.net/packages/")
-   ("SC"   . "http://joseito.republika.pl/sunrise-commander/")))
+   ("melpa" . "http://melpa-stable.milkbox.net/packages/")))
 
 (package-initialize)
 
@@ -24,9 +23,12 @@
     csv-mode
     diminish
     escreen
+    evil
     fastnav
     find-file-in-project
     fill-column-indicator
+    flx
+    flx-ido
     flymake-hlint
     fullscreen-mode
     furl
