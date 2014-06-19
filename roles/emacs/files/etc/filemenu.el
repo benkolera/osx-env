@@ -1,14 +1,16 @@
-(require 'helm)
+(require 'flx-ido)
 (require 'projectile)
 (require 'tramp)
 (require 'recentf)
 
-(helm-mode 1)
+(recentf-mode 1)
+(setq recentf-max-menu-items 25)
 (projectile-global-mode)
- 
-(recentf-mode t)
+(ido-mode 1)
+(ido-everywhere 1)
+(flx-ido-mode 1)
+;; disable ido faces to see flx highlights.
+(setq ido-use-faces nil)
 
-(global-set-key (kbd "C-x f") 'helm-mini)
-(global-set-key (kbd "C-x C-f") 'helm-find-files)
+(global-set-key "\C-x\ \C-f" 'recentf-open-files)
 (global-set-key (kbd "C-x C-b") 'ibuffer)
-(global-set-key (kbd "C-c p h") 'helm-projectile)
