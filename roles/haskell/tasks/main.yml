@@ -1,12 +1,6 @@
 # Dirty dirty hax. Pity cabal-install doesn't track versions of binaries that it has installed.
-- name: "install cabal-latest-version"
-  template: src="cabal-latest-version" dest="{{user_bin}}" owner="{{user_name}}" mode="700"
-
 - name: "install cabal-latest-exe"
   copy: src="cabal-latest-exe" dest="{{user_bin}}" owner="{{user_name}}" mode="700"
-
-- name: "install cabal-latest-package-list"
-  copy: src="cabal-latest-package-list" dest="{{user_bin}}" owner="{{user_name}}" mode="700"
 
 - name: "install .ghci"
   copy: src=".ghci" dest="{{user_home}}" owner="{{user_name}}" mode="600"

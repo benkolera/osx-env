@@ -2,6 +2,10 @@
 (evil-mode 1)
 (define-key evil-normal-state-map "u" 'undo)
 
+(add-to-list 'load-path "/Users/ben/lib/emacs/powerline-mode")
+(require 'powerline)
+(powerline-evil-theme)
+
 ;; Left, down, up, right: [htns] (previously: [hjkl]).
 (define-key evil-motion-state-map "h" 'evil-backward-char)
 (define-key evil-motion-state-map "n" 'evil-next-line)

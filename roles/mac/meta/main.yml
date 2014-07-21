@@ -9,6 +9,6 @@ dependencies:
   - { role: ssh }
   - { role: iseek , when: is_iseek }
   - { role: js }
-  - { role: java }
-  - { role: ruby }
-  - { role: perl }
+#  - { role: java }
+#  - { role: ruby }
+#  - { role: perl }
