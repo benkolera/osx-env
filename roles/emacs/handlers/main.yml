@@ -1,2 +1,0 @@
-- name: compile shm
-  shell: "{{cabal_install}} install happy && {{cabal_install}} install chdir='{{emacs_lib_shm}}'"

@@ -1,8 +1,0 @@
-# -*- mode: snippet -*-
-# name: latex-section
-# key: sec
-# binding: direct-keybinding
-# --
-\section{$1}
-
-$0

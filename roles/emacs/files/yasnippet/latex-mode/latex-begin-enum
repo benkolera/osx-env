@@ -1,8 +1,0 @@
-# -*- mode: snippet -*-
-# name: latex-begin-enum
-# key: enum
-# binding: direct-keybinding
-# --
-\begin{enumeration}
-\item[$1] $0
-\end{enumeration}
