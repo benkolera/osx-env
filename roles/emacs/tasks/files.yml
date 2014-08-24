@@ -1,33 +1,16 @@
 - name: "files | create emacs directories"
   file: state=directory path={{item}} owner={{user_name}} mode=700
   with_items:
-    - "{{emacs_etc}}"
-    - "{{emacs_var}}"
-    - "{{emacs_lib}}"
+    - "{{emacs_dir}}"
     - "{{emacs_org}}"
-    - "{{emacs_yasnippet}}"
 
-- name: "files | install etc"
-  template: src="{{item}}" dest="{{emacs_etc}}" owner="{{user_name}}" mode="600"
+- name: "files | install emacs.d"
+  template: src="{{item}}" dest="{{emacs_dir}}" owner="{{user_name}}" mode="600"
   with_fileglob:
-    - etc/*
+    - emacs.d/*
 
 - name: "files | install zshrc"
   copy: src="emacs.zshrc" dest="{{zshd}}" owner="{{user_name}}" mode="600"
 
-- name: "files | install libs"
-  copy: src="lib/" dest="{{emacs_lib}}" owner="{{user_name}}" mode="700"
-
-- name: "files | install yasnippet lib"
-  copy: src="yasnippet/" dest="{{emacs_yasnippet}}" owner="{{user_name}}" mode="700"
-
-- name: "files | install .emacs"
-  template: src="emacsrc" dest="{{user_home}}.emacs" owner="{{user_name}}" mode="600"
-
 - name: "files | install emc script"
   copy: src="emc" dest="{{user_bin}}" owner="{{user_name}}" mode="700"
-
-- name: "files | checkout structured-haskell-mode"
-  git: repo=https://github.com/chrisdone/structured-haskell-mode.git
-       dest={{emacs_lib_shm}}
-  notify: compile shm

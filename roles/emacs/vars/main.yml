@@ -1,7 +1,1 @@
-emacs_etc: "{{user_etc}}emacs/"
-emacs_lib: "{{user_lib}}emacs/"
-emacs_var: "{{user_var}}emacs/"
 emacs_org: "{{user_var}}org/"
-emacs_tmp: "{{user_tmp}}emacs/"
-emacs_yasnippet: "{{user_lib}}yasnippet/"
-emacs_lib_shm: "{{emacs_lib}}structured-haskell-mode"
