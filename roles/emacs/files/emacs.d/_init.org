@@ -36,7 +36,7 @@
 
    #+BEGIN_SRC emacs-lisp
      (req-package evil
-       :require (helm-config undo-tree evil-surround ace-jump-mode)
+       :require (undo-tree evil-surround ace-jump-mode)
        :ensure evil
        :init
        (progn
@@ -113,16 +113,17 @@
                        "k" 'kill-buffer
                        "K" 'kill-buffer-and-window
                        "f" 'dired
-                       "gs" 'magit-status)))
+                       "gs" 'magit-status
+                       "gp" 'magit-pull)))
     #+END_SRC
 
 *** =evil-surround=
 
     #+BEGIN_SRC emacs-lisp
       (req-package evil-surround
-        :init (progn 
+        :init (progn
          (global-evil-surround-mode 1)
-         (evil-define-key 'operator evil-surround-mode-map "s" 'evil-forward-char) 
+         (evil-define-key 'operator evil-surround-mode-map "s" 'evil-forward-char)
          (evil-define-key 'visual evil-surround-mode-map "s" 'evil-forward-char)
          (evil-define-key 'visual evil-surround-mode-map "S" 'evil-end-of-line)
          (evil-define-key 'operator evil-surround-mode-map "k" 'evil-surround-edit)
@@ -259,7 +260,8 @@
 
    #+BEGIN_SRC emacs-lisp
      (req-package magit
-       :diminish magit-auto-revert-mode)
+       :diminish magit-auto-revert-mode
+       :require magit-gitflow)
    #+END_SRC
 
 ** Line Numbers
@@ -353,14 +355,6 @@
        (progn
          (req-package inf-haskell)
          (req-package hs-lint)
-         (bind-key "C-x C-d" nil haskell-mode-map)
-         (bind-key "C-c C-z" 'haskell-interactive-switch haskell-mode-map)
-         (bind-key "C-c C-l" 'haskell-process-load-file haskell-mode-map)
-         (bind-key "C-c C-b" 'haskell-interactive-switch haskell-mode-map)
-         (bind-key "C-c C-t" 'haskell-process-do-type haskell-mode-map)
-         (bind-key "C-c C-i" 'haskell-process-do-info haskell-mode-map)
-         (bind-key "C-c M-." nil haskell-mode-map)
-         (bind-key "C-c C-d" nil haskell-mode-map)
          (defun my-haskell-hook ()
            (setq mode-name " λ ")
            (turn-on-haskell-doc)
@@ -368,6 +362,7 @@
            (capitalized-words-mode)
            (diminish 'capitalized-words-mode "")
            (turn-on-eldoc-mode)
+           (turn-on-haskell-indentation)
            (diminish 'eldoc-mode "")
            (turn-on-haskell-decl-scan))
          (setq haskell-font-lock-symbols 'unicode)
@@ -375,6 +370,8 @@
          (setq haskell-stylish-on-save t)
          (setq haskell-tags-on-save t)
          (add-hook 'haskell-mode-hook 'my-haskell-hook)))
+     (req-package ghc
+       :init (add-hook 'haskell-mode-hook (lambda () (ghc-init)))) 
    #+END_SRC
 ** Scala
    #+BEGIN_SRC emacs-lisp
@@ -428,6 +425,10 @@
      (req-package tern-auto-complete)
    #+END_SRC
 
+** CSV
+   #+BEGIN_SRC emacs-lisp
+     (req-package csv-mode)
+   #+END_SRC
 * Annoyances
   Fixing a couple of gripes I have with Emacs.
 
@@ -441,7 +442,7 @@
 
 ** Backups and Autosave Files
    These things end up everywhere, so let's stick them all in a temporary
-   directory.
+   directory. Also remove the annoying lockfiles.
 
    #+BEGIN_SRC emacs-lisp
      (req-package files
@@ -451,6 +452,7 @@
                `((".*" . ,temporary-file-directory)))
          (setq auto-save-file-name-transforms
                `((".*" ,temporary-file-directory t)))))
+         (setq create-lockfiles nil)
    #+END_SRC
 
 ** Questions
