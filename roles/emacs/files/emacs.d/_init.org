@@ -181,6 +181,10 @@
     (req-package org
       :config
       (progn
+        (org-babel-do-load-languages
+          'org-babel-load-languages
+          '((ditaa . t))) ; this line activates ditaa
+        (setq org-ditaa-jar-path "/usr/local/Cellar/ditaa/0.9/libexec/ditaa0_9.jar")
         (add-hook 'org-mode-hook
                   '(lambda ()
                      (setq mode-name " ꙮ ")))
@@ -344,6 +348,12 @@
      (progn
        (add-hook 'prog-mode-hook 'fic-mode)))
    #+END_SRC
+** =wgrep=
+   Because being able to edit an rgrep result and have things save
+   properly in each file is awesome!
+   #+BEGIN_SRC emacs-lisp
+     (req-package wgrep)
+   #+END_SRC
 * Languages
 ** Haskell
    #+BEGIN_SRC emacs-lisp
@@ -401,7 +411,13 @@
    #+BEGIN_SRC emacs-lisp
      (req-package tex-site
        :require auto-complete-config
-       :ensure auctex)
+       :ensure auctex
+       :config
+       (progn
+         (setq TeX-view-program-selection '((output-pdf "PDF Viewer")))
+         (setq TeX-view-program-list
+           '(("PDF Viewer" "/Applications/Skim.app/Contents/SharedSupport/displayline -b -g %n %o %b")))))
+
    #+END_SRC
 
 ** Idris
@@ -425,9 +441,25 @@
      (req-package tern-auto-complete)
    #+END_SRC
 
-** CSV
+** Purescript
    #+BEGIN_SRC emacs-lisp
-     (req-package csv-mode)
+     (add-to-list 'load-path "~/.emacs.d/vendor/purescript-mode/")
+     (require 'purescript-mode-autoloads)
+     (add-to-list 'Info-default-directory-list "~/.emacs.d/vendor/purescript-mode/")
+     (add-to-list 'load-path "~/.emacs.d/vendor/purscheck/")
+     (require 'purscheck)
+   #+END_SRC
+** ElmJS
+   #+BEGIN_SRC emacs-lisp
+     (req-package elm-mode)
+   #+END_SRC
+** Markdown 
+   #+BEGIN_SRC emacs-lisp
+     (req-package markdown-mode
+       :config 
+       (progn
+         (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
+         (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))))
    #+END_SRC
 * Annoyances
   Fixing a couple of gripes I have with Emacs.
